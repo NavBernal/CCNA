@@ -6,7 +6,7 @@
 ### Servers
 - A device that provides functions or services for clients
 ### Servers & Clients
-![](attachments/Pasted%20image%2020240822104238.png)
+![](attachments/747f3e063f7349f5ba8cdeacf4ee1aaf.png)
 - The same device can be a client in some situations, and a server in other situations
 ### Switches
 - Have many network interfaces/ports for end hosts to connect to (usually 24+)

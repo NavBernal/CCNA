@@ -1,2 +1,2 @@
 # CCNA
-These are my notes for the CCNA cert
+These are my notes and Cisco Packet Tracker labs for the CCNA cert
