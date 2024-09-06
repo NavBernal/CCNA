@@ -6,7 +6,7 @@
 - Created by the **International Organization for Standardization (ISO)**
 - Functions are divided into 7 'layers'
 - These layers work together to make the network work
-
+![](Pasted%20image%2020240903192859.png)
 ### Layer 7 - Application Layer
 - This layer is closes to the end user
 - Interacts with software applications, for example, your web browser
