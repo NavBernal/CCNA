@@ -56,4 +56,10 @@
 - Another good trick to remember is that while using "?" next to a command will give us all possible commands containing that word or letter, including a space in between will give us all possible options for that command
 - So something like `password ?` will give us all possible options for the `password` command, as shown here:
 ![](attachments/Pasted%20image%2020240906223223.png)
-- It's also worth mentioning that 
+- It's also worth mentioning that passwords **ARE** case-sensitive within Cisco CLI, so trying to use `ccna` the log in wouldn't work in this case since `CCNA` was set
+- The password also does **NOT** display as you type it, and would instead appear blank in the CLI even though your input is going through like normal
+- If you enter the wrong password 3 times, you'll be denied access for having `bad secrets`
+![](attachments/Pasted%20image%2020240906223553.png)
+### Running-Config/Startup-Config
+- There are two separate config files on the device at once
+- 
