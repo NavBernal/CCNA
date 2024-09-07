@@ -1,3 +1,4 @@
+# OSI Model & TCP/IP Suite
 ### What is a networking model?
 - Networking **models** categorize and provide a structure for networking **protocols** and standards
 	- A protocol is a set of **logical** rules defining how network devices and software should work
