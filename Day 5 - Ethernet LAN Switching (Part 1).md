@@ -102,4 +102,5 @@
 - PC2 sends the frame out of its network interface, and SW1 receives it
 - SW1 looks at the source MAC address of the frame, and then adds it to its MAC address table, associating it with the F0/2 interface
 - This time, however, it doesn't flood the frame
-- This is known as a **known uni**
+- This is known as a **known unicast** frame, because the destination is already in its MAC address table
+- Whereas **unkown unicas**
