@@ -103,4 +103,35 @@
 - SW1 looks at the source MAC address of the frame, and then adds it to its MAC address table, associating it with the F0/2 interface
 - This time, however, it doesn't flood the frame
 - This is known as a **known unicast** frame, because the destination is already in its MAC address table
-- Whereas **unkown unicas**
+- Whereas **unkown unicast** frames are flooded, **known unicast** frames are simply forwarded to the destination, like this:
+![](attachments/Pasted%20image%2020240907234733.png)
+- PC1 then processes the frame up the OSI stack, through the de-encapsulation process, which we learned about in the [Day 3 - OSI Model & TCP-IP Suite](Day%203%20-%20OSI%20Model%20&%20TCP-IP%20Suite.md) lecture
+- On Cisco switches, these **dynamic MAC addresses** are removed from the MAC address table after 5 minutes of inactivity
+- This means that if PC1 didn't send any traffic for over 5 minutes, SW1 would remove the MAC address to clean out the MAC address table
+- If PC1 sent traffic again, SW1 would dynamically learn its MAC address again
+![](attachments/Pasted%20image%2020240907235030.png)
+- Here's an example with two switches
+-  PC1 wants to send some information to PC3 with a source packet of AAAA.AA00.0001, and the destination is AAAA.AA00.0003
+![](attachments/Pasted%20image%2020240907235241.png)
+- PC1 sends the frame out of its network interface and it arrives at SW1
+- SW1 learns PC1's MAC address from the source address field of the frame, and associates it with the interface on which it was received, F0/1
+- Once again, a MAC address learned in this way is called a **dynamically learned** or **dynamic** MAC address
+- SW1 has learned that PC1 can be reached via its FO/1 interface, but it still doesn't know where PC3 is
+- This is again referred to as an **unkown unicast** frame, meaning a **flood** must occur out of all of its ports (except the one it was received on) to reach PC3
+- In this case, it will flood the frame out of F0/2 and F0/3
+![](attachments/Pasted%20image%2020240907235624.png)
+- PC2 drops the frame because the destination MAC address doesn't match its own MAC address
+![](attachments/Pasted%20image%2020240907235956.png)
+- SW2 will use the source MAC address field of the frame to dynamically learn PC1's MAC address and the interface it can use to reach PC1
+- Unlike on SW1, PC1 isn't actually directly connected to the interface SW2 enters in its own MAC address table
+- However, this is the interface which SW2 will use to reach PC1
+- That's the meaning of the interface in the MAC address table, it doesn't mean the device is directly connected to this interface
+- SW2 received a **unicast frame**, that is a frame destined for a single device, but it doesn't know how to reach that device, because it's not in its MAC address table
+- This is called an **unkown unicast frame**, which means its **flooding time**
+- Since it received the frame on F0/3, it'll only send out the frame through F0/1 and F0/2
+![](attachments/Pasted%20image%2020240908000322.png)
+- PC4 drops the frame, and PC3 receives it, as it matches the destination MAC address
+- If PC3 were to send a reply back to PC1, it would reverse the destination and source MAC address and do the whole process again
+![](attachments/Pasted%20image%2020240908000507.png)
+- SW1 receives the frame and adds PC3's MAC address to its MAC address table
+- Just to be clear, the switch 
