@@ -30,16 +30,16 @@
 - Both the **encapsulation** and **de-encapsulation** processes are examples of **adjacent-layer interaction**, which is interaction between the different layers of the OSI model
 ![](attachments/72f518d929442a293b084f8f588da0d7.png)
 - However, the communication between the application layers of the two different system is called **same-layer interaction**
-- This **same-layer interaction** between applications layers is what allows the application layer to perform its functions of identifying communication partners, synchronizing communications, etc.
+- This **same-layer interaction** between application layers is what allows the application layer to perform its functions of identifying communication partners, synchronizing communications, etc.
 ### Layer 6 - Presentation Layer
 - Data in the application layer is in 'application format'
-- It needs to be 'trnslated' to a different format to be sent over the network
+- It needs to be 'translated' to a different format to be sent over the network
 - The **Presentation** Layer's job is to translate between application and network formats
 - For example, encryption of data as it is sent, and decryption of data as it is received
 - Also translates between different Application-Layer formats to ensure that the data is in a format the receiving host can understand
 - All you really need to know is that **the presentation layer translates data into the appropriate formation**
 ### Layer 5 - Session Layer
-- Controls dialogs dialogs (sessions) between communicating hosts
+- Controls dialogs (sessions) between communicating hosts
 - Establishes, manages, and terminates connections between the local application (your web browser) and the remote application (YouTube)
 ### OSI Model - The Upper Layers
 - Network engineers don't usually work with the top 3 layers
@@ -51,7 +51,7 @@
 ### Layer 4 - Transport Layer
 - Segments and reassembles data for communications between end hosts
 - Breaks large pieces of data into smaller segments which can be more easily sent over the network and are less likely to cause transmission problems if errors occur
-	- For example, if data wasn't segmented and you were trying to watch a video, if an error occurred that prevented the video from reaching your computer, you wouldn't be able to watch the video at all
+	- For example, if data wasn't segmented, and you were trying to watch a video, if an error occurred that prevented the video from reaching your computer, you wouldn't be able to watch the video at all
 	- However, if the data is segmented into many small units, and only one fails to reach the destination, that's not a big problem
 	- The video might skip for a second, but then will continue on just fine
 - Provide **host-to-host** or **end-to-end** communication
@@ -63,7 +63,7 @@
 - Next, that segment is passed on to Layer 3, and another header is added on to the end
 ![](attachments/a3e2c7b56afe6657b9c53d7b38a02ab7.png)
 ### Layer 3 - Network Layer
-- Provides connectivity between end hosts on different networks (i.e. outside of the LAN)
+- Provides connectivity between end hosts on different networks (i.e. outside the LAN)
 - Provides logical addressing (IP addresses)
 - Provides path selection between source and destination
 	- Often, there are many possible paths which data can take to reach its destination, especially over a huge network like the Internet
@@ -92,9 +92,9 @@
 - Defines physical characteristics of the medium used to transfer data between the devices
 - For instance, voltage levels, maximum transmission distances, physical connectors, cable specifications, etc.
 - Digital bits are converted into electrical signals (for wired connections) or radio signals (for wireless connections)
-- All of the information in Day 2's video (cables, pin layouts, etc.) is related to the **Physical Layer**
+- All the information in the [Day 2 - Interfaces & Cables](Day%202%20-%20Interfaces%20&%20Cables.md) lecture (cables, pin layouts, etc.) is related to the **Physical Layer**
 ![](attachments/5370674e8fac3c0ebce8521b8d5f788e.png)
-- Now we've got a complete **frame**, and that **frame** will be sent from the local device over this cable (i.e. ethernet cable)
+- Now we've got a complete **frame**, and that **frame** will be sent from the local device over this cable (i.e. Ethernet cable)
 ![](attachments/587e2ae137e92c805ddc4fa488cbb6cd.png)
 - Once it reaches the remote device, the reverse process of encapsulation, **de-encapsulation** takes place
 - The data link layer translates the raw physical data into a complete frame once again
@@ -103,7 +103,7 @@
 ![](attachments/9cd3aef8940b3fea12138c863b20650b.png)
 - The layer 3 header is removed, leaving the **layer 4 segment**
 ![](attachments/60d80a96a8c56c8d0b6eda795a94dfc5.png)
-- Finally, the layer 4 header is removed and we are left with the original data prepared by the upper layers of the original device
+- Finally, the layer 4 header is removed, and we are left with the original data prepared by the upper layers of the original device
 - That's the process of **de-encapsulation**
 ### PDUs
 ![](attachments/01d2bfab31ef1be4c3972221b011cd88.png)

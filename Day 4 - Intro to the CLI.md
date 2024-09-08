@@ -38,7 +38,7 @@
 - You cannot change the configuration just yet, but you can change the time on the device, save the configuration file, etc.
 - Here's a comparison of the commands available in **User EXEC Mode vs Privileged EXEC Mode**:
 ![](attachments/bfc63040626e22f97069ff02e2f48156.png)
-- These screenshots have been captured using **Cisco's Packet Tracer Software** and may not actually display all of the available commands that would show on a physical Cisco device, but it's good enough to get the point across
+- These screenshots have been captured using **Cisco's Packet Tracer Software** and may not actually display all the available commands that would show on a physical Cisco device, but it's good enough to get the point across
 - As noted in the screenshots, you can use a "?" symbol to view the available commands that you currently have access to
 - In Cisco CLI, you can save time entering complete commands by using `Tab` to complete the command
 - However, you can save even more time by just typing the beginning of the command and pressing `Enter` as shown here:
@@ -56,7 +56,7 @@
 - Another good trick to remember is that while using "?" next to a command will give us all possible commands containing that word or letter, including a space in between will give us all possible options for that command
 - So something like `password ?` will give us all possible options for the `password` command, as shown here:
 ![](attachments/4cedaf01022667413e8a84b76d3c58d8.png)
-- It's also worth mentioning that passwords **ARE** case-sensitive within Cisco CLI, so trying to use `ccna` the log in wouldn't work in this case since `CCNA` was set
+- It's also worth mentioning that passwords **ARE** case-sensitive within Cisco CLI, so trying to use `ccna` the login wouldn't work in this case since `CCNA` was set
 - The password also does **NOT** display as you type it, and would instead appear blank in the CLI even though your input is going through like normal
 - If you enter the wrong password 3 times, you'll be denied access for having `bad secrets`
 ![](attachments/915cf35f8ebc92e5c6f4e4ab67ad8443.png)
@@ -69,7 +69,7 @@
 - The same can be done for the startup-config using `show startup-config`
 - Unless a startup-config file has been saved, this won't display anything as we're only using the default-config file
 - To create a new startup-config, there are three ways of doing so:
-	- Enter in the `write` command from **privileged EXEC mode**
+	- Enter the `write` command from **privileged EXEC mode**
 	- `write memory` performs the same function
 	- `copy running-config startup-config` will just copy all the current config files into the startup-config file, essentially performing the same function as the previous two commands
 - If we now use `show startup-config`, it'll display the same information as the `show running-config` command

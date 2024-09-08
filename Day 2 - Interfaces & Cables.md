@@ -1,7 +1,7 @@
 # Interfaces & Cables
 ### Ethernet
 - A collection of network protocols/standards
-- For the purpose of this lesson, we'll focus on types of cabling by ethernet standards
+- For the purpose of this lesson, we'll focus on types of cabling by Ethernet standards
 ### Bits & Bytes
 - A bit is made up of either 0 or 1
 - This is what allows a computer to carry out tasks
