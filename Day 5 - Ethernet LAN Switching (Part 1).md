@@ -1,5 +1,5 @@
 # Ethernet LAN Switching (Part 1)
-### OSI Model - Physical Layer test
+### OSI Model - Physical Layer
 - Defines physical characteristics of the medium used to transfer data between devices
 - For example, voltage levels, maximum transmission distances, physical connectors, cable specs, etc.
 - Digital bits are converted into electrical signals (for wired connections) or radio signals (for wireless connections)
