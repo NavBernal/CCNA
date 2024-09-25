@@ -3,9 +3,9 @@
 - IPv4 packet structure
 - Fields of the IPv4 header
 ### OSI Model - PDUs
-![](attachments/Pasted%20image%2020240923140926.png)
+![](attachments/09957b407d07f32b3914ad556b55da0b.png)
 ### IPv4 Header
-![](attachments/Pasted%20image%2020240923141031.png)
+![](attachments/ca8aba17a4cafdda59c9b8e35ebc1c7f.png)
 ### Version Field
 - Length: 4 bits
 - Identifies the version of IP used
@@ -18,7 +18,7 @@
 - Value of 5 = 5 x 4-bytes = 20 bytes
 - Minimum value is 5 (= 20 bytes)
 - Maximum value is 15 (15 x 4-bytes = 60 bytes)
-![](attachments/Pasted%20image%2020240923145457.png)
+![](attachments/cea56bc64ba300583c6fb0c654b8b119.png)
 - **Minimum IPv4 Header Length = 20 bytes**
 - **Maximum IPv4 Header Length = 60 bytes**
 ### DSCP
@@ -37,7 +37,7 @@
 - Measured in bytes (**not 4-byte increments like IHL)
 - Minimum value of 20 (=IPv4 header with no encapsulated data)
 - Maximum value of 65,535 (maximum 16-bit value)
-![](attachments/Pasted%20image%2020240923221453.png)
+![](attachments/b7bcec9f6b89fd3c1ce779152d168ba9.png)
 ### Identification Field
 - If a packet is fragmented due to being too large, this field is used to identify which packet the fragment belongs to
 - All fragments of the same packet will have their own IPv4 header with the same value in this field
