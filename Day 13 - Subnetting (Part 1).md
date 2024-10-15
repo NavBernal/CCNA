@@ -86,3 +86,20 @@
 - This time, we've saved even more addresses, using only 2 addresses instead of 4 for this point-to-point connection
 - Some still use /30 for point-to-point connections at times, but /31 masks are more efficient and is the recommended way to go
 ### CIDR (/32)
+![](attachments/Pasted%20image%2020241013181550.png)
+- If we try to calculate the amount of usable addresses using our formula, it clearly doesn't work in this case based on the results above
+- This means that we won't be able to use a /32 mask and probably never will to configure an actual interface
+- However, there are still some uses for a /32 mask 
+- For example, when you want to create a static route to a specific host instead of a network, you can use a /32 mask to specify that exact host
+### CIDR Notation
+- The way of writing a prefix with a slash followed by the prefix length is called CIDR notation, because it was introduced with the CIDR system
+![](attachments/Pasted%20image%2020241015105917.png)
+- As a reminder, subnetting is **the process of dividing a larger network into smaller ones called subnets**
+### Subnetting Review
+![](attachments/Pasted%20image%2020241015110222.png)
+- Even though only 45 hosts are required for each network, we have to take into account the **network and broadcast addresses** bringing our total number of required hosts to 47
+- /24 indicates a Class C network, which has 256 available addresses 
+- A Class C network would be able to accomadate all 188 addresses needed for this scenario, but we can optimize further by subnetting
+![](attachments/Pasted%20image%2020241015111236.png)
+- In the above /26 prefix network, we find that we have a subnet close enough to the 47 required addresses from the previous example
+- Even though we can't always make subnets have the exact number of addresses required, this is for the better as its good to have extra room for growth in the network
