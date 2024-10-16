@@ -146,12 +146,12 @@
 ![](attachments/cd4d8e575aeea418f9a3753f15a328bd.png)
 - In this case, our broadcast address is the final IP address of this subnet range
 - As we have two borrowed bits for /26, we know that the value of our last "borrowed" bit of our network portion is 64
-- Since our fourth octet value of 78 is larger than 64, we would add 64 once again and end up with the following broadcast address: **192.168.91.128/26**
+- Since our fourth octet value of 78 is larger than 64, we would add 64 once again and end up with the following broadcast address: **192.168.91.127/26**
 #### Question 4
 ![](attachments/108265b37750227262dab3b41cb436b5.png)
 - In order to have 4 subnets, we would need to borrow 2 bits (2^2 = 4)
 - With that information, we know that the value of the 2nd bit in our network portion is 64
-- As subnet 1 has a network address of 0 and broadcast address of 63, subnet 2 should have a network address of **172.16.64.0/18** and a broadcast address of **172.16.127.0/18**
+- As subnet 1 has a network address of 0 and broadcast address of 63, subnet 2 should have a network address of **172.16.64.0/18** and a broadcast address of **172.16.127.255/18**
 #### Question 5
 ![](attachments/c4600338a8ac9b78609e0b1ccb7ac8c6.png)
 - To figure out the amount of subnets we can make, we should first determine the amount of host bits that would allow 1000 usable addresses
