@@ -191,3 +191,16 @@ What happens if you try to assign a switch interface to a VLAN that doesn't exis
 ### Quiz Question 4
 If PC3 sends a broadcast message, how many devices will receive it?
 ![](attachments/Pasted%20image%2020241106111655.png)
+**Answer: 3**
+![](attachments/Pasted%20image%2020241106111758.png)
+- First, the switch will receive it
+- Then, it will send it out of all interfaces in VLAN20, so the router and the other PC in the VLAN
+- This makes a total of 3 devices
+- If no VLANs were configured, ALL other PCs would receive it
+- But since we have configured VLANs, only these devices in the same VLAN will receive it
+### Quiz Question 5
+You create VLANs 10, 20, and 30 on a Cisco switch. How many VLANs will be displayed in the output of the `show vlan brief` command?
+- a) 3
+- b) 5
+- c) 8
+- d) 10
