@@ -6,7 +6,7 @@
 - How to configure trunk ports
 - 'Router on a Stick' (ROAS)
 ### VLANs
-![](attachments/Pasted%20image%2020241112190948.png)
+![](attachments/8a84e32fa1f5f0ea8983cf3509d19ca8.png)
 - This is the network topology we'll use for this video
 - Note that VLAN10 is split between two switches
 - This is very common, as departments in a company aren't always split up exactly by location
@@ -20,13 +20,13 @@
 - This is because there are no PCs in VLAN20 connected to SW1
 - PCs in VLAN20 can still reach PCs connected to SW1, R1 will perform inter-VLAN routing
 - So, let's say the PC in VLAN20 wants to send traffic to one of the VLAN10 PCs connected to SW1
-![](attachments/Pasted%20image%2020241112191903.png)
+![](attachments/f22080117e05fd31e246e256c0eb86db.png)
 - It will send the frame with a destination MAC address of R1, its default gateway
 - R1 then forwards it back to SW2
 - Note that this traffic arrived at SW2 on the VLAN10 interface
 - The traffic is now in VLAN10, so it forwards it to SW1 on the VLAN10 connection between them, and then SW1 forwards the traffic to the destination PC
 - Here's what the whole process looks like:
-![](attachments/Pasted%20image%2020241112192434.png)
+![](attachments/a9a36246fddf8b4696a0aebc754baa0e.png)
 - So, even though there isn't a VLAN20 connection between SW2 and SW1, the PC in VLAN20 can still send traffic to the PC IN VLAN10, because the router performs **inter-VLAN routing**
 ### Trunk Ports
 - In a small network with few VLANs, it's possible to use a separate interface for each VLAN when connecting switches to switches, and switches to routers
@@ -34,10 +34,10 @@
 - It will result in wasted interfaces, and often routers won't have enough interfaces for each VLAN
 - You can use **trunk ports** to carry traffic from multiple VLANs over a simple interface
 - Once again, these are different from **access ports**, which belong to a single VLAN only
-![](attachments/Pasted%20image%2020241112193135.png)
+![](attachments/68aa270650e126f1fff6b2796e33e76f.png)
 - Now the separate connections for each VLAN have been replaced with a single connection between SW1 and SW2, and SW2 and R1
 - Let's say this PC in VLAN10 wants to send some data to this other PC in VLAN10:
-![](attachments/Pasted%20image%2020241112193407.png)
+![](attachments/b6b4745e51928d50f7acc5e106acec65.png)
 - It sends the traffic to SW2, which then sends it to SW1
 - How does SW1 know which VLAN the traffic belongs to?
 - Both VLANs 10 and 30 are allowed on the interface the traffic was received on, but how does SW1 know which VLAN it belongs to?
@@ -58,10 +58,10 @@
 - Even modern CISCO equpment doesn't support it
 - For the CCNA, you only need to learn 802.1Q
 ### Ethernet Frame
-![](attachments/Pasted%20image%2020241112194321.png)
+![](attachments/c0d1b23176f1016375a74f9fd3295dd1.png)
 - The dot1q tag is inserted between two frames of the ethernet header
 - Dot1q inserts a 4-byte/32-bit field between two fields of this Ethernet header:
-![](attachments/Pasted%20image%2020241112194458.png)
+![](attachments/55be4545eafe544bd5bc27cf18420f16.png)
 - As you can see here, the dot1q tag is inserted betwen the Source MAC address and the type/length field
 ### 802.1Q Tag
 - The 802.1Q tag is inserted between the **Source** and **Type/Length** fields of the Ethernet frame
@@ -71,7 +71,7 @@
 	- Tag Control Information (TCI)
 - The TCI consists of three sub-fields
 - 802.1Q tag format diagram:
-![](attachments/Pasted%20image%2020241112194756.png)
+![](attachments/11e25952c91fed29f456f566f764e7c5.png)
 - It can be divided into two halves, the TPID and TCI fields
 - The TCI can be divided into three sub-fields:
 	- PCP
@@ -100,7 +100,7 @@
 	- Extended VLANs: 1006-4094
 - Some older devices cannot use the extended VLAN range, however, it's safe to expect that modern switches will support the extended VLAN range
 ### Trunk Ports
-![](attachments/Pasted%20image%2020241112195826.png)
+![](attachments/b10e613aad1a8ce59c1572e5394e5df2.png)
 - The right PC in VLAN10 wants to send traffic to the other PC in VLAN10
 - The traffic goes to SW2, which then forwards it to SW1, with a tag indicating that the traffic belongs to VLAN10
 - SW1 receives the frame, and because the destination is also in VLAN10, it will forward the traffic to the destination
@@ -115,13 +115,13 @@
 - Switches will still forward traffic if there's a native VLAN mismatch, but problems may occur
 ### Native VLAN Example
 - Let's say VLAN10 has been configured as the native VLAN on the trunk link between SW1 and SW2
-![](attachments/Pasted%20image%2020241112200558.png)
+![](attachments/d1a7f92d153d7038b6e47577d8286fc8.png)
 - Let's follow the same path as the previous example (VLAN10 PC to other VLAN10 PC)
 - It will still send the traffic to SW1, but since it's in the native VLAN (VLAN10), it doesn't need to be tagged
 - The untagged frame arrives at SW1, which assumes that the traffic belongs to VLAN10, so it forwards it to the destination
-![](attachments/Pasted%20image%2020241112200928.png)
+![](attachments/bf28071473c8fc141860ca5ecd8ca7d6.png)
 - This time, let's look at if there's a native VLAN mismatch configuration:
-![](attachments/Pasted%20image%2020241112200813.png)
+![](attachments/2317ee70b0a5ae265330ed92f35f3b68.png)
 - On SW2's interface, VLAN10 has been configured as the native VLAN
 - However, on SW1's interface, VLAN30 has been configured as the native VLAN
 - Up to the point the traffic reaches SW1, it's the same
@@ -129,13 +129,13 @@
 	- This frame has no VLAN tag, therefore, it must belong to VLAN30
 	- But, the destination is in VLAN10, not VLAN30
 	- So, I won't forward the frame
-![](attachments/Pasted%20image%2020241112201225.png)
+![](attachments/8de142fb16ae004738000ba157fa18cd.png)
 - This is why it's important that the native VLAN configuration matches between switches
 ### Trunk Configuration
-![](attachments/Pasted%20image%2020241112201413.png)
+![](attachments/a23110ce6fc7a81fcfda2318140b1794.png)
 - We'll be configuring G0/0 on SW1, and G0/0 & G0/1 on SW2 as trunk ports
 - Let's go on SW1 first:
-![](attachments/Pasted%20image%2020241112201600.png)
+![](attachments/bf359eb8f2099a2bd10de810f8d7c6d3.png)
 - Let's look at the most basic trunk configuration, manually configuring the interface as a trunk
 - After entering interface config mode, use the `switchport mode trunk` command to manually configure the interface as a trunk
 - However, in this case, we got an error message: `Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode`
@@ -150,12 +150,12 @@
 - On switches that only support dot1q, you will only need the switchport mode trunk command
 - But, on some switches, you will need to set the encapsulation first
 - To confirm these changes, we can use the `show interfaces trunk` command:
-![](attachments/Pasted%20image%2020241112202355.png)
+![](attachments/106ed5bd72995956f533f7cdb5718778.png)
 - `Mode on` means that the interface was manually configured as a trunk
 - By default, all VLANs 1-4094 are allowed on the trunk
 - However, for security purposes, we might want to limit which VLANs can be forwarded on the trunk
 - Here is the command to configure the VLANs allowed on a trunk:
-![](attachments/Pasted%20image%2020241112202701.png)
+![](attachments/452469392b160df5627932b64bad82b7.png)
 - The command is `switchport trunk allowed vlan`, and it contains a few options:
 	- `WORD` allows you to simply configure the list of VLANs allowed
 	- `add` allows you to add to the existing VLAN list
@@ -164,17 +164,17 @@
 	- `except` allows all VLANs excpet for whatever is whitelisted
 	- `none` is also self explanatory
 
-![](attachments/Pasted%20image%2020241112203447.png)
+![](attachments/f694743a50e784a58b5b2f5b3c8903ac.png)
 - Since VLAN20 hasn't actually been created on this switch, it still isn't displayed in the VLANs allowed and active in management domain section
-![](attachments/Pasted%20image%2020241112204453.png)
-![](attachments/Pasted%20image%2020241112204633.png)
-![](attachments/Pasted%20image%2020241112204728.png)
-![](attachments/Pasted%20image%2020241112204812.png)
-![](attachments/Pasted%20image%2020241112204956.png)
+![](attachments/981d4ea222825ff737a9fb12f60a8098.png)
+![](attachments/d9006703e8b747bf5d0b2b4bbf28dfc5.png)
+![](attachments/2d681eb0387b00fd86744ea39f9e7f25.png)
+![](attachments/df00d83d9dffeae6591a0c0f36057a57.png)
+![](attachments/13167ecad6b409a21b20ae01dd1f49ea.png)
 - SW1 has hosts in VLAN10 and VLAN30 connected to it
 - No hsots in VLAN20 are connected, so there's no need to allow VLAN20 on the trunk between SW1 and SW2
 - So, let's set the allowed VLANs to 20 and 30:
-![](attachments/Pasted%20image%2020241112205142.png)
+![](attachments/2efb124c3757bc05418e840ac3a69c6c.png)
 - The reason to do this is for security purposes, so that only traffic in the necessary VLANs can use that connection
 - Also, for network performance purposes, this avoids unnecessary traffic, because broadcasts and such in other VLANs won't be sent over the trunk
 - For security purpoises, it is best to change the native VLAN to an **unused VLAN**
