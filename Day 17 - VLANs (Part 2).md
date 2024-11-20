@@ -177,6 +177,25 @@
 ![](attachments/2efb124c3757bc05418e840ac3a69c6c.png)
 - The reason to do this is for security purposes, so that only traffic in the necessary VLANs can use that connection
 - Also, for network performance purposes, this avoids unnecessary traffic, because broadcasts and such in other VLANs won't be sent over the trunk
-- For security purpoises, it is best to change the native VLAN to an **unused VLAN**
+- For security purposes, it is best to change the native VLAN to an **unused VLAN**
 - Network security will be explained more in-depth later in the course
 - **Make sure the native VLAN matches betwen switches**
+![](attachments/Pasted%20image%2020241119114128.png)
+- The command to change the native VLAN is `switport trunk native vlan` followed by the VLAN number
+- We can see these changes reflected when running the `do show interfaces trunk` command
+![](attachments/Pasted%20image%2020241119114400.png)
+- Notice that `G0/0` is not listed anywhere 
+- Not in VLAN10 or VLAN30, even though those are the VLANs allowed on the trunk
+- This is because the `show vlan brief` command shows the access ports assigned to each VLAN, NOT the trunk ports that allow each VLAN
+- Instead, we can use the `show interfaces trunk` command to confirm trunk ports
+![](attachments/Pasted%20image%2020241119165631.png)
+- Now it's time to configure SW2
+- As seen in the diagram, on SW2's G0/0 interface, we must allow VLANs 10 and 30
+- On the G0/1 interface, however, we must allow VLAN 20 as well
+- Here are the configurations for SW2's G0/0 interface:
+![](attachments/Pasted%20image%2020241119165828.png)
+- These are the same commands as before when configuring SW1
+- Here are the configurations for SW2'S G0/1 interface:
+![](attachments/Pasted%20image%2020241119165932.png)
+- This is almost identical to G0/0, except we now allow VLAN20 in additiion to VLAN10 and 30
+- Now, both G0/0 and G0/1 are displayed in the output of the `show interfaces trunk` command
