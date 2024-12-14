@@ -200,7 +200,7 @@
 - This is almost identical to G0/0, except we now allow VLAN20 in addition to VLAN10 and 30
 - Now, both G0/0 and G0/1 are displayed in the output of the `show interfaces trunk` command
 ### Router Configuration
-- In the previous lecture, we used three separate interfaces for the connection from SW2 to RR1, and assigned a separate IP address to each one on R1
+- In the previous lecture, we used three separate interfaces for the connection from SW2 to R1, and assigned a separate IP address to each one on R1
 - Each one served as the default gateway address for the PCs in each VLAN
 - However, now we are using only one physical connection between the two devices
 - We must use **sub-interfaces** on R1
