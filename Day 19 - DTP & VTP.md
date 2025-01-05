@@ -82,4 +82,21 @@
 - If the interface is in dynamic desirable, dynamic auto, or trunk mode, this will be on
 - If it's in access mode, or if you used the `switchport nonegotiate` command, it will be off
 ### VTP (VLAN Trunking Protocol)
-- 
+- VTP allows you to configure VLANs on a central VTP server switch, and other switches (VTP clients) will synchronize their VLAN database to the server
+- It is designed for large networks with many VLANs, so that you don't have to configure each VLAN on every switch
+- Like DTP, it's rarely used, and it's recommended that you don't use it
+- There are three VTP versions: 1, 2, and 3
+- There are three VTP modes: **server, client & transparent**
+- Cisco switches operate in VTP server mode by default
+- VTP Servers:
+	- Can add/modify/delete VLANs
+	- Store the VLAN database in non-volatile RAM (NVRAM)
+	- Will increase the **revision number** every time a VLAN is added/modified/deleted
+	- Will advertise the latest version of the VLAN database on trunk interfaces, and the VTP clients will synchronize their VLAN database to it
+	- **Also function as VTP clients**
+	- **Therefore, a VTP server will synchorize to another VTP server with a higher revision number**
+- VTP Clients:
+	- Can't add/modify/delete VLANs
+	- Don't store the VLAN database in NVRAM **(in VTPv3, they do)**
+	- Will sync their VLAN datavase ot the server with the highest revision number in their VTP domain
+	- Will advertise their VLAN database, and forward VTP advertisements to other clients over their trunk ports
