@@ -241,5 +241,5 @@ Which command is used to configure a switch interface as a routed port?
 ### Boson ExSim Practice Question
 ![](attachments/5fd6a8a59af4413f9c35fa467a4c1af3.png)
 - **Answer: B**
-	- Since we issued the `switchport trunk native vlan 44` command, traffic in the native VLAN (vlan 44) will not be tagged when it is sent over a trunk interface
+	- Since we issued the `switchport trunk native vlan 44` command, traffic in the native VLAN (VLAN 44) will not be tagged when it is sent over a trunk interface
 ![](attachments/b14bfc81ba9f8d4ec50f5e46a565dc6f.png)
