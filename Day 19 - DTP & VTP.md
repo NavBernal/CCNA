@@ -14,15 +14,15 @@
 - If we use DTP, we don't need to enter these commands
 - For security purposes, manual configuration is recommended
 - DTP should be disabled on all switchports
-![](attachments/Pasted%20image%2020241218154821.png)
+![](attachments/f8318bea93e534b6e40cc50086db6aec.png)
 - `dynamic` is how we would manually enable DTP
-![](attachments/Pasted%20image%2020241218154855.png)
+![](attachments/44da1035949515f69800c048d0764edb.png)
 - A switchport in `dynamic desirable` mode will actively try to form a trunk with other Cisco switches
 - It'll form a trunk if connected to another switchport in the following modes:
 	- `switchport mode trunk`
 	- `switchport mode dynamic desirable`
 	- `switchport mode dynamic auto`
-![](attachments/Pasted%20image%2020241218155209.png)
+![](attachments/1c3e92a7497c03879e0df962e3417c56.png)
 - `Switchport` is enabled because this is a Layer 2 port
 - If we wanted to configure a routed port with the `no switchport` command, this would display differently
 - `Administrative Mode` is dynamic desirable, as this is what's been actually configured on the interface
@@ -30,16 +30,16 @@
 - Because SW2's interface is trunk, SW1's interface became a trunk as well, thanks to DTP negotiation
 - On SW2, you can see that both the `Administrative Mode` and `Operational Mode` are `trunk`
 - What will happen if both interfaces are configured in dynamic desirable mode?
-![](attachments/Pasted%20image%2020241218155556.png)
+![](attachments/4417aa3a35c5c643da087323b9fb834a.png)
 - Even though both interfaces have an `Administrative Mode` of `dynamic desirable`, the `Operational Mode` is still `trunk` due to both switches actively using DTP to try and form a trunk
 - Even if manually configured as a trunk, an interface still sends out DTP frames
 - Let's look at another interface combination:
-![](attachments/Pasted%20image%2020241218155831.png)
+![](attachments/6c5fb42312de88c363e15956ae3393fe.png)
 - A switchport in `dynamic auto` mode does not actively try to form a trunk, it's more passive
 - It will tell SW1 'if you want to form a trunk, I'll do it, but I'm not going to actively try to form a trunk with you'
 - However, because SW1 is in `dynamic desirable` mode, once again, a trunk will be formed
 - Last example:
-![](attachments/Pasted%20image%2020250104184010.png)
+![](attachments/95913afbc147a410a42fc31f67a7f73e.png)
 - SW2's interface is now manually configured as an access port with the `switchport mode access` command
 - SW1 is actively trying to form a trunk, but since SW2 is manually configured in access mode, the trunk will not form, and both will operate as access ports in the default VLAN (VLAN1)
 - The output of the `show interfaces` command now shows an operational mode of `static access`
@@ -52,16 +52,16 @@
 	- `switchport mode trunk`
 	- `switchport mode dynamic desirable`
 - Example:
-![](attachments/Pasted%20image%2020250104184720.png)
+![](attachments/e1a0268a673270f6d2d39966ccee120b.png)
 - What if both interfaces are in `dynamic auto` mode?
-![](attachments/Pasted%20image%2020250104184849.png)
+![](attachments/c60e57b4aa9ca972f00c9be98be8a258.png)
 - What about `dynamic auto` and `access` mode?
-![](attachments/Pasted%20image%2020250104185002.png)
+![](attachments/afd5c5f0343106159693901adac3850e.png)
 - What happens if a manually configured `trunk` port is connected to a manually configured `access` port?
-![](attachments/Pasted%20image%2020250104185151.png)
+![](attachments/fe2de107081eb18b803e7ed6448e016f.png)
 - This configuration would result in an error, and traffic won't pass between these switches
 - The following chart summarizes the resulting operational mode given two administrative modes:
-![](attachments/Pasted%20image%2020250104185328.png)
+![](attachments/b20d3d145c10402aea2ca30d73f0b8a5.png)
 - **DTP will not form a trunk with a router, PC, etc.**
 - **The switchport will be in `access` mode**
 - If you want to configure ROAS, you must manually configure the interface connected to the router as a trunk, you cannot put it in dynamic desirable mode and expect it to become a trunk 
@@ -75,7 +75,7 @@
 - `ISL` is favored over `802.1Q`, so if both switches support ISL it will be selected
 - DTP frames are sent in VLAN1 when using `ISL`, or in the native VLAN when using `802.1Q` (the default native VLAN is VLAN1, however)
 - To show the negotatioan of trunking encapsulation, here is some output from the `show interfaces switchport` command:
-![](attachments/Pasted%20image%2020250104190239.png)
+![](attachments/e35ad28d6816442c6a2b8d223f86d115.png)
 - The interfaces on both switches were set to `dynamic desirable` mode so that they would form a trunk
 - Notice that the default trunking encapsulation mode of `negotiate` results in an operational trunking encapsulation of `isl`
 - The negotiation of trunking field shows whether `DTP` is enabled, whether the interface is sending DTP frames or not
