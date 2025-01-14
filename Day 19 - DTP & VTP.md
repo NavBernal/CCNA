@@ -100,3 +100,20 @@
 	- Don't store the VLAN database in NVRAM **(in VTPv3, they do)**
 	- Will sync their VLAN datavase ot the server with the highest revision number in their VTP domain
 	- Will advertise their VLAN database, and forward VTP advertisements to other clients over their trunk ports
+- A very useful command to verify VTP information is `show vtp status`
+- In order to change the name of the vtp domain, we would use `vtp domain [domain name]`
+	- `vtp domain cisco` would change the VTP domain name from NULL to cisco
+- If a switch with no VTP domain (domain NULL) receives a VTP advertisement with a VTP domain name, it will automatically join that VTP domain
+- If a switch receives a VTP advertisement in the same VTP dommain with a higher revision number, it will update it's VLAN database to match
+- **One danger of VTP** is that if you connect an old switch with a higher revision number to your network (and the VTP domain name matches), all switches in the domain will sync their VLAN database to that switch
+- VLAN Transparent Mode:
+	- Doesn't participate in the VTP domain (doesn't sync its VLAN database)
+	- Maintains its own VLAN database in NVRAM. It can add/modify/delete VLANs, but they won't be advertised to other switches
+	- Will forward VTP advertisements that are in the same domain as it
+- Changing the VTP domain to an unused domain, as well as changing the VTP mode to transparent will both reset the revision number to 0
+- To change the VTP version, use the `vtp version [version number]` command
+	- Doing this increases the revision number, and ads with this new number will be sent
+- VTP V2 isn't much different than VTP V1
+- The major difference is that VTP V2 introduces support for Token Ring VLANs
+- If you use Token Ring VLANs, you must enable V2
+- Otherwise, there's no reason to use VTP V2
