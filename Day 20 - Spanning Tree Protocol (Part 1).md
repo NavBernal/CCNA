@@ -42,3 +42,60 @@
 	- The Bridge Priority is compared first
 	- If they tie, the MAC address is then compared
 #### Updated Bridge ID
+![](attachments/Pasted%20image%2020250121185117.png)
+- Cisco switches use a version of STP called **PVST** (Per-VLAN Spanning Tree)
+- PVST runs a separate STP 'instance' in each VLAN, so in each VLAN different interfaces can be forwarding/blocking
+![](attachments/Pasted%20image%2020250121185429.png)
+- In the default VLAN of 1, the default bridge priority is actually **32769** (32768 + 1)
+- The **bridge priority + extended system ID** is a single field of the bridge ID, however, the extended system ID Is set and cannot be changed (because it is determined by the VLAN ID)
+- Therefore, you can only change the total bridge priority (bridge priority + extended system ID) in units of 4096, the value of the least significant bit of the bridge priority
+![](attachments/Pasted%20image%2020250121185822.png)
+- The STP bridge priority can only be changed in units of 4096
+- The valid values you can configure are:
+	- 0
+	- 4096
+	- 8192
+	- 12288
+	- 16384
+	- 20480
+	- 24576
+	- 28672
+	- 32768
+	- 36864
+	- 40960
+	- 45056
+	- 49152
+	- 53248
+	- 57344
+	- 61440
+- The Extended System ID will then be added to this number to make the total bridge priority
+### Spanning Tree Protocol
+- All interfaces on the root bridge are **designated ports**
+- Designated ports are in a forwarding state
+- When a switch is powered on, it assumes it's the root bridge
+- It'll only give up its position if it receives a 'superior' BPDU (lower bridge ID)
+- Once the topology has converged and all switches agree on the root bridge, only the root bridge sends BPDUs
+- Other switches in the network will forward these BPDUs, but will not genarate their own original BPDUs
+#### Steps
+1. The switch with the lowest bridge ID is elected as the root bridge. All ports on the root bridge are **designated ports** (forwarding state)
+2. Each remaining switch will select ONE Of its interfaces to be its **root port**. The interface with the lowest *root cost* will be the root port. Root ports are also in a forwarding state.
+**IMPORTANT TO REMEMBER FOR EXAM:**
+![](attachments/Pasted%20image%2020250121190924.png)
+![](attachments/Pasted%20image%2020250121191447.png)
+- An important command to be able to view spanning tree configurations is `show spanning-tree`
+- STP Port ID = port priority (default 128) + port number
+- The NEIGHBOR switch's port ID is used to break the tie, not the local switch's port ID
+- Every collision domain has a single STP designated port:
+	1. The switch with the lowest root cost will make its port designated
+	2. If the root cost is the same, the switch with the lowest bridge ID will make its port designated
+	3. The other switch will make its port non-designated (blocking)
+### STP Process Summary
+1. One switch is elected as the root bridge. All ports on the root bridge are **designated ports** (forwarding state). Root bridge selection:
+	1. Lowest Bridge ID
+2. Each remaining switch will select ONE Of its interfaces to be its **root port** (forwarding state). Ports across from the root port are always **designated** ports. Root port selection:
+	1. Lowest root cost
+	2. Lowest neighbor bridge ID
+	3. Lowest neighbor port ID
+3. Each remaining collision domain will select ONE interface to be a **designated port** (forwarding state). The other port in the collision domain will be **non-designated** (blocking). Designated port selection:
+	1. Interface on switch with lowest root cost
+	2. Interface on switch with lowest bridge ID
