@@ -99,3 +99,12 @@
 3. Each remaining collision domain will select ONE interface to be a **designated port** (forwarding state). The other port in the collision domain will be **non-designated** (blocking). Designated port selection:
 	1. Interface on switch with the lowest root cost
 	2. Interface on switch with the lowest bridge ID
+### Important Commands
+- `show spanning-tree`
+	- Provides information regarding the STP protocol being used and the role of each interface (root/designated/non-designated)
+	- By default, it'll show info for all the VLANs on that switch
+	- If you only wish to view info for a single VLAN, you can designate which one by using `show spanning-tree vlan [vlan-id]`
+- `show spanning-tree detail`
+	- Lists similar info to the previous command, but with more details such as the total cost of a root path
+- `show spanning-tree summary`
+	- Lists each VLAN, and shows how many interfaces are in each STP state
