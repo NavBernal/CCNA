@@ -40,4 +40,20 @@
 	- Sends/receives normal traffic
 	- Learns MAC addresses
 ![](attachments/Pasted%20image%2020250122121216.png)
-- The Disabled state is
+- The Disabled state is the spanning tree state of a shutdown, administratively disabled, interface
+### Spanning Tree Timers
+![](attachments/Pasted%20image%2020250122164636.png)
+#### Hello STP Timer
+- Switches do not forward the BPDUs out of their **root** ports and **non-designated** ports, only their **designated** ports
+#### Max Age Timer
+- If another BPDU is received before the max age timer counts down to 0, the time will reset to 20 seconds and no changes will occur
+- If another BPDU isn't received, the max age timer counts down to 0 and the switch will reevaluate its STP choices, including root bridge, and local root, designated, and non-designated ports
+- If a non-designated port is selected to become a designated or root port, it'll transition from the blocking state to the listening state (15 seconds), learning state (15 seconds), and then finally the forwarding state
+- So, it can take a total of **50 seconds** for a blocking interface to transition to forwarding
+- These timers and transitional states are to make sure that loops aren't accidentally created by an interface moving to forwarding state too son
+- A forwarding interface can move directly to a blocking state (there is no worry about creating a loop by blocking an interface)
+- A blocking state cannot move directly to forwarding state. It must go through the listening and learning states
+### Spanning Tree BPDU
+- Cisco's PVST+ uses the destination MAC address of `01:00:0c:cc:cc:cd` for its BPDUs, **THIS IS WORTH REMEMBERING FOR THE TEST**
+- **PVST** = Only ISL trunk encapsulation
+- **PVST+** = Supports 802.1Q
