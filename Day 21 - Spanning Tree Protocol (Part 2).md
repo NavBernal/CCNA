@@ -27,7 +27,7 @@
 	- Does NOT learn MAC addresses from regular traffic that arrives on the interface
 #### Learning State
 - After the Listening state, a Designated or Root port will enter the **Learning** state
-- The Learning state is 15 seconds long by defualt. This is determined by the **Forwarding delay** timer (the same timer is used for both the Listening and Learning states)
+- The Learning state is 15 seconds long by default. This is determined by the **Forwarding delay** timer (the same timer is used for both the Listening and Learning states)
 - An interface in the Learning sate:
 	- ONLY sends/receives STP BPDUs
 	- Does NOT send/receive regular traffic
