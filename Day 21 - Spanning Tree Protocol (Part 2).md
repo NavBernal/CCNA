@@ -57,3 +57,41 @@
 - Cisco's PVST+ uses the destination MAC address of `01:00:0c:cc:cc:cd` for its BPDUs, **THIS IS WORTH REMEMBERING FOR THE TEST**
 - **PVST** = Only ISL trunk encapsulation
 - **PVST+** = Supports 802.1Q
+- Regular STP (not Cisco's PVST+) uses a destination MAC address of `0180.c200.0000`
+- The STP timers on the root bridge determine the STP timers for the entire network
+### Spanning Tree Optional Features (STP Toolkit)
+#### Portfast
+- Portfast allows a port to move immediately to the **Forwarding** state, bypassing **Listening** and **Learning**
+- If used, it must be enabled **only on ports connected to end hosts**
+- If enabled on a port connected to another switch, it could cause a Layer 2 loop
+- Portfast is enabled on an interface using the command `spanning-tree portfast`
+- Portfast can also be abled using the command `spanning-tree portfast default`
+- This enables portfast on **all access ports** (not trunk ports)
+#### BPDU Guard
+- If an interface with BPDU Guard enabled receives a BPDU from another switch, the interface will be shut down to prevent a loop from forming
+- This can be configured using the command `spaning-tree bpduguard enable`
+- It can also be enabled using the command `spanning-tree portfast bpduguard default`
+- This enables BPDU Guard on all Portfast enabled interfaces
+#### Root Guard
+- If you enable **root guard** on an interface, even if it receives a superior BPDU (lower bridge ID) on that interface, the switch will not accept the new switch as the root bridge
+- The interface will be disabled
+#### Loop Guard
+- If you enable **loop guard** on an interface, even if the interface stops receiving BPDUs, it will not start forwarding
+- The interface will be disabled
+### Configure the Spanning Tree Mode
+- `spanning-tree mode ?`
+	- `mst = Multiple spanning tree mode`
+	- `pvst = Per-Vlan spanning tree mode`
+	- `rapid-pvsts = Per-vlan rapid spanning tree mode`
+### Configure the Primary Root Bridge
+- To configure the root bridge, we can use the `spanning-tree vlan [vlan-id] root primary` command
+- This command sets the STP priority to 24576
+- If another switch already has a priority lower than 24576, it sets this switch's priority to 4096 less than the other switch's priority
+- The command that is actually applied in this case is `spanning-tree vlan [vlan-id] priority 24576`
+### Configure the Secondary Root Bridge
+- The command to set the secondary root bridge is `spanning-tree vlan [vlan-id] root secondary`
+- This command sets the STP priority to 28672
+### Configure STP Port Settings
+- `spanning-tree vlan [vlan-id] ?`
+	- `cost = Change an interface's per VLAN spanning tree path cost`
+	- `port-priority = Change an interface's spanning tree port priority`
