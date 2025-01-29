@@ -5,7 +5,7 @@
 - STP optional features
 - STP configuration
 ### Spanning Tree Port States
-![](attachments/Pasted%20image%2020250122112759.png)
+![](attachments/3b57329d0bb5b7fc9af38ced3adc59fe.png)
 - Root/Designated ports remain stable in a **Forwarding** state
 - Non-designated ports remain stable in a **Blocking** state
 - **Listening** and **Learning** are transitional states which are passed through when an interface is activated, or when a **Blocking** port must transition to a **Forwarding** state due to a change in the network topology
@@ -39,10 +39,10 @@
 	- Sends/receives BPDUs
 	- Sends/receives normal traffic
 	- Learns MAC addresses
-![](attachments/Pasted%20image%2020250122121216.png)
+![](attachments/982e698a4a8675ab2487f74036a901d6.png)
 - The Disabled state is the spanning tree state of a shutdown, administratively disabled, interface
 ### Spanning Tree Timers
-![](attachments/Pasted%20image%2020250122164636.png)
+![](attachments/ae725a713204bc57f89deba2f9cfe0f0.png)
 #### Hello STP Timer
 - Switches do not forward the BPDUs out of their **root** ports and **non-designated** ports, only their **designated** ports
 #### Max Age Timer
