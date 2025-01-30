@@ -97,4 +97,4 @@
 	- A connection to a hub
 	- Must operate in half-duplex mode
 	- You don't need to configure the interface as shared (it should be detected)
-	- To manually configure it, use: `spanning-tree link-type shared`
+	- To manually configure it, use: `spanning-tree link-type shared` 
