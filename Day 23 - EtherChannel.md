@@ -109,4 +109,4 @@
 - `SW# show etherchannel summary`
 	- Displays a summary of EtherChannels on the switch
 - `SW# show etherchannel port-channel`
-	- Displays information about the virtual port-channel interfaces on the switch
+	- Displays information about the virtual port-channel interfaces on the switchl
