@@ -7,12 +7,12 @@
 - **DSW** = Distribution Layer Switch, a switch that access layer switches connect to
 - When the bandwidth of the interfaces connect to end hosts is greater than the bandwidth of the connection to the distribution switch(es), this is called **oversubscription**
 - Some oversubscription is acceptable, but too much will cause congestion
-![](attachments/Pasted%20image%2020250131105908.png)
+![](attachments/44a234e84738ec3506f9e2960000e407.png)
 - If you connect two switches together with multiple links, all except one will be disabled by spanning tree
 - If all of ASW1's interfaces were forwarding, L2 loops would be formed between ASW1 and DSW1, leading to broadcast storms
 - Other links will be unused unless the active link fails
 	- In that case, one of the inactive links will start forwarding
-![](attachments/Pasted%20image%2020250131110145.png)
+![](attachments/88fa0b1b6d2bb095a11ba4865ea179b7.png)
 - EtherChannel groups multiple interfaces together to act as a single interface
 - STP will treat this group as a single interface
 - Traffic using the EtherChannel will be load balanced among the physical interfaces in the group
@@ -21,12 +21,12 @@
 	- Port Channel
 	- LAG (Link Aggregation Group)
 ### EtherChannel Load-Balancing
-![](attachments/Pasted%20image%2020250131110606.png)
+![](attachments/c820cf2ffd15da3d9311c8dfba9ccbec.png)
 - Etherchannel load balances based on 'flows'
 - A flow is a communication between two nodes in the network
 - Frames in the same flow will be forwarded using the same physical interface
 - If frames in the same flow were forwarded using different physical interfaces, some frames may arrive at the destination out of order, which can cause problems
-![](attachments/Pasted%20image%2020250131110909.png)
+![](attachments/ac1765c9c605d59ada1045789f9be956.png)
 - You can change the inputs used in the interface selection calculation
 - Inputs that can be used:
 	- Source MAC
@@ -96,7 +96,7 @@
 ### Layer 3 EtherChannel
 - Specify the range of interfaces you wish to configure using the `int range` command
 - Before using the `channel-group` command, use the `no switchport` command to make them layer 3 routed interfaces
-- Then, configure the ip address on the port channel interface:
+- Then, configure the IP address on the port channel interface:
 	- `int po1`
 	- `ip address 10.0.0.1 255.255.255.252`
 ### Commands
