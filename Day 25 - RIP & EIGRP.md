@@ -99,3 +99,10 @@
 - '0' in the wildcard mask = must match
 - '1' in the wildcard mask = don't have to match
 ![](attachments/02f9cc5d2082cc0135ce1920b64c26df.png)
+### show ip protocols
+- To change the router-id, we can using the command `eigrp router-id [A.B.C.D]`
+- This doesn't actually have to be an IP address, it just needs to be in the proper format
+- The order of priority for determining the Router ID is:
+	1. Manual configuration
+	2. Higest IP address on a loopback interface
+	3. Highest IP address on a physical interface
