@@ -102,7 +102,7 @@
 ### Commands
 - `SW(config)# port-channel load-balance [mode]`
 	- Configures the EtherChannel load-balancing method on the switch
-- `SW# show ehterchannel load-balance`
+- `SW# show etherchannel load-balance`
 	- Displays info about the load-balancing settings
 - `SW(config-if)# channel-group [number] mode {desirable|auto|active|passive|on}`
 	- Configures an interface to be part of an EtherChannel
