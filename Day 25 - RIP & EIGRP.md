@@ -100,9 +100,22 @@
 - '1' in the wildcard mask = don't have to match
 ![](attachments/02f9cc5d2082cc0135ce1920b64c26df.png)
 ### show ip protocols
-- To change the router-id, we can using the command `eigrp router-id [A.B.C.D]`
+- To change the router-id, we can use the command `eigrp router-id [A.B.C.D]`
 - This doesn't actually have to be an IP address, it just needs to be in the proper format
 - The order of priority for determining the Router ID is:
 	1. Manual configuration
-	2. Higest IP address on a loopback interface
+	2. Highest IP address on a loopback interface
 	3. Highest IP address on a physical interface
+### EIGRP Metric
+- By default, EIGRP uses **bandwidth** and **delay** to calculate metric
+- You can simplify the formula like this: metric = bandwidth + delay
+	- Bandwidth of the **slowest link** + the delay of **all links**
+### EIGRP Terminology
+- **Feasible Distance** = This router's metric value to the route's destination
+- **Reported Distance** (aka Advertised Distance) = The neighbor's metric value to the route's destination
+![](attachments/43937b083be1d0afd3540aca4df4cef2.png)
+- In this example, the values on the left represent the **feasible distance** while the values on the right represent the **reported distance**
+- **Successor** = The route with the lowest metric to the destination (the best route)
+- **Feasible Successor** = An alternate route to the destination (not the best route) **which meets the feasibility condition**
+	- Feasibility condition: A route is considered a **feasible successor** if it's **reported distance** is lower than the **successor** route's **feasible distance**
+![](attachments/c26aa9f5f5025b788a648fabe1e5476a.png)
