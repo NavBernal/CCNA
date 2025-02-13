@@ -93,7 +93,7 @@
 ### OSPF
 ![](attachments/a637effa9786cb1b66d13f3b98a1e18c.png)
 ### OSPF Configuration
-- You can activate OSPF directionaly on an interface with the following command:
+- You can activate OSPF directly on an interface with the following command:
 	- `R1(config-if)# ip ospf [process-id] area [area]`
 - Configure ALL interfaces as OSPF passive interfaces:
 	- `R1(config-router)# passive-interface default`
