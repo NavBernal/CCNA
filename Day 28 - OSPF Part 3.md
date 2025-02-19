@@ -75,7 +75,7 @@
 ![](attachments/6a4f59615e6ae3dc7de5b3cb4fc9bed6.png)
 - **Non-broadcast** network type default timers = Hello 30, Dead 120
 ### OSPF Neighbor Requirements
-1. Are number must match
+1. Area number must match
 2. Interfaces must be in the same subnet
 3. OSPF process must not be `shutdown`
 4. OSPF Router IDs must be unique
