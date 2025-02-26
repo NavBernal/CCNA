@@ -92,3 +92,5 @@
 - Syslog (514)
 ### TCP & UDP
 - DNS (53)
+### Using Anki to Study Port Numbers (Custom Study)
+![](attachments/Pasted%20image%2020250225231744.png)
