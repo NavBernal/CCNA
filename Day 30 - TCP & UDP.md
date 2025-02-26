@@ -22,7 +22,7 @@
 ![](attachments/Pasted%20image%2020250225222456.png)
 - The server sends back a message using the PC's destination port as the server's source port and vice versa
 - This is done to tell PC1 that this communication is part of the same session
-### TCP (Transmisison Control Protocol)
+### TCP (Transmission Control Protocol)
 - **Is connection-oriented:**
 	- Before actually sending data to the destination host, the two hosts communicate to establish a connection
 	- Once the connection is established, the data exchange begins
@@ -30,7 +30,7 @@
 	- The destination host must acknowledge that it received each TCP segment
 	- If a segment isn't acknowledged, it's sent again
 - **Provides sequencing:**
-	- Sequence numbers in the TCP header allow destination hsots to put segments in the correct order even if they arrive out of order
+	- Sequence numbers in the TCP header allow destination hosts to put segments in the correct order even if they arrive out of order
 - **Provides flow control:**
 	- The destination host can tell the source host to increase/decrease the rate that data is sent
 ### Establishing Connections: Three-Way Handshake
@@ -40,12 +40,12 @@
 ### TCP: Sequencing/Acknowledgement
 ![](attachments/Pasted%20image%2020250225224154.png)
 - Hosts set a random initial sequence number
-- **Forward acknowledgment** is used to indicate the sequence number of the next segment the host expects to receive
+- **Forward acknowledgement** is used to indicate the sequence number of the next segment the host expects to receive
 ### TCP Retransmission
 ![](attachments/Pasted%20image%2020250225224358.png)
 ### TCP Flow Control: Window Size
-- Acknowleding every single segment, no matter what size, is inefficient
-- The TCP header's **Window Size** field allows more data to be sent before an acknowledgment is required
+- Acknowledging every single segment, no matter what size, is inefficient
+- The TCP header's **Window Size** field allows more data to be sent before an acknowledgement is required
 - A 'sliding window' can be used to dynamically adjust how large the window size is
 ![](attachments/Pasted%20image%2020250225224643.png)
 - **NOTE:** In all of these examples, very simple sequence numbers were used
@@ -56,7 +56,7 @@
 	- The sending host does not establish a connection with the destination host before sending data
 	- The data is simply sent
 - **Does not** provide reliable communication
-	- When UDP is used, acknowledgements are not sent for receibed segments
+	- When UDP is used, acknowledgements are not sent for received segments
 	- If a segment is lost, UDP has no mechanism to re-transmit it
 	- Segments are sent 'best-effort'
 - **Does not** provide sequencing
@@ -69,7 +69,7 @@
 - TCP provides more features than UDP, but at the cost of **additional overhead**
 - For applications that require reliable communications (i.e. downloading a file), TCP is preferred
 - For applications like real-time voice and video, UDP is preferred
-- There are some applications that use UDP, but provide reliability etc within the application itself
+- There are some applications that use UDP, but provide reliability etc. within the application itself
 - Some applications use both TCP & UDP, depending on the situation
 
 ![](attachments/Pasted%20image%2020250225231107.png)
