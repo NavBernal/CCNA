@@ -7,15 +7,15 @@
 - Basic HSRP configurations
 ### First Hop Redundancy Protocols
 - A FHRP is a computer networking protocol which is designed to protect the default gateway used on a subnetwork by allowing two or more routers to provide backup for that address
-- In the event of failure of an active router, the backup router will take over the address. usually within a few seconds
+- In the event of failure of an active router, the backup router will take over the address (usually) within a few seconds
 - A **virtual IP** is configured on the two routers, and a **virtual MAC** is generated for the virtual IP
 	- Each FHRP uses a different format for the virtual MAC
 - End hosts in the network are configured to use the virtual IP as their default gateway
 - The active router replies to ARP requests using the virtual MAC address, so traffic destined for other networks will be sent to it
 - If the active router fails, the standby becomes the next active router
 - The new active router will send **gratuitous ARP** messages so that switches will update their MAC address tables
-	- **Gratuitous ARP**: ARP replies sent wihout being requested (no ARP request message was received)
-	- The frames are broadcast to FFFF.FFFF.FFFF (normal ARIP replies are unicast)
+	- **Gratuitous ARP**: ARP replies sent without being requested (no ARP request message was received)
+	- The frames are broadcast to FFFF.FFFF.FFFF (normal ARP replies are unicast)
 - Once this process is done, the new active router should now function as the default gateway
 - FHRPs are **non-preemptive**
 	- The current active router will not automatically give up its role, even if the former active router returns
@@ -51,8 +51,8 @@
 	- **XX** = GLBP group number
 	- **YY** = AVF number
 ### Comparing FHRPs
-![](attachments/Pasted%20image%2020250223184428.png)
-- Remembering the basic characteristics of all three and memorizing the info on this chart be enough to answer FHRP questions on the exam
+![](attachments/9cfa5acf020000a40521785fad97f99c.png)
+- **NOTE:** Remembering the basic characteristics of all three and memorizing the info on this chart should be enough to answer FHRP questions on the exam
 ### Configuring HSRP
  - To configure a v1 HSRP and specify its group number, we'd use the following command: `R1(config-if)#standby <0-255>`
  - To change it to version 2, use `standby version 2`
@@ -64,7 +64,7 @@
 	- The **active router** in this order:
 		1. Highest priority (default 100)
 		2. Highest IP address
-- Finally, enable pre-emption using `standby [group-number] preempt`
+- Finally, enable preemption using `standby [group-number] preempt`
 	- **Preempt** causes the router to take the role of active router, even if another router already has the role
 	- This is only necessary to enable on the router you want to become active
 - When doing the same configuration, make sure to use the same HSRP version number
