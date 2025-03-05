@@ -63,7 +63,7 @@
 ### Multicast Addresses
 - **Unicast** addresses are one-to-one
 	- One source to done destination
-- **Broadcast** addresses are one-to-all
+ - **Broadcast** addresses are one-to-all
 	- One source to all destinations (within the subnet)
 - **Multicast** addresses are one-to-many
 	- One source to multiple destinations (that have joined the specific *multicast* group)
