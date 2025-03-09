@@ -111,7 +111,7 @@
 - A connected *network route* is automatically added for each connected network
 - A local *host route* is automatically added for each address configured on the router
 - Routes for link-local addresses are not added to the routing table
-- IPv6 static route command: `ipv6 route destination/prefix-length{next-hop | exit-interface [next-hop]} [ad]`
+- IPv6 static route command: `ipv6 route destination/prefix-length {next-hop | exit-interface [next-hop]} [ad]`
 	- Curly brackets represent a **required choice**
 	- Square brackets represent an **optional choice**
 - The following three static routes are **the same** for both IPv4 and IPv6
@@ -136,4 +136,4 @@
 - **Floating Static Route:**
 	- Raise the AD higher than the main route
 ### Link-Local Next-Hops
-- `ipv6 route address/prefix-length interface-id link-local-next-hop`
+- `ipv6 route [address/prefix-length] [interface-id] [link-local-next-hop]`
