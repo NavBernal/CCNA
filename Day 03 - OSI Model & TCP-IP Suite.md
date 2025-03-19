@@ -92,7 +92,7 @@
 - Defines physical characteristics of the medium used to transfer data between the devices
 - For instance, voltage levels, maximum transmission distances, physical connectors, cable specifications, etc.
 - Digital bits are converted into electrical signals (for wired connections) or radio signals (for wireless connections)
-- All the information in the [Day 2 - Interfaces & Cables](Day%202%20-%20Interfaces%20&%20Cables.md) lecture (cables, pin layouts, etc.) is related to the **Physical Layer**
+- All the information in the [Day 02 - Interfaces & Cables](Day%2002%20-%20Interfaces%20&%20Cables.md)) lecture (cables, pin layouts, etc.) is related to the **Physical Layer**
 ![](attachments/5370674e8fac3c0ebce8521b8d5f788e.png)
 - Now we've got a complete **frame**, and that **frame** will be sent from the local device over this cable (i.e. Ethernet cable)
 ![](attachments/587e2ae137e92c805ddc4fa488cbb6cd.png)

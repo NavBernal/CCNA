@@ -3,7 +3,7 @@
 - Defines physical characteristics of the medium used to transfer data between devices
 - For example, voltage levels, maximum transmission distances, physical connectors, cable specs, etc.
 - Digital bits are converted into electrical signals (for wired connections) or radio signals (for wireless connections)
-- All the information in the [Day 2 - Interfaces & Cables](Day%202%20-%20Interfaces%20&%20Cables.md) lecture is related to the Physical Layer
+- All the information in the [Day 02 - Interfaces & Cables](Day%2002%20-%20Interfaces%20&%20Cables.md)) lecture is related to the Physical Layer
 ### Data Link Layer
 - Provides node-to-node connectivity and data transfer (PC to switch, switch to router, etc.)
 - Defines how data is formatted for transmission over a physical medium (copper UTP cables)
@@ -105,7 +105,7 @@
 - This is known as a **known unicast** frame, because the destination is already in its MAC address table
 - Whereas **unknown unicast** frames are flooded, **known unicast** frames are simply forwarded to the destination, like this:
 ![](attachments/734989a29970d454a86376ca58046701.png)
-- PC1 then processes the frame up the OSI stack, through the de-encapsulation process, which we learned about in the [Day 3 - OSI Model & TCP-IP Suite](Day%203%20-%20OSI%20Model%20&%20TCP-IP%20Suite.md) lecture
+- PC1 then processes the frame up the OSI stack, through the de-encapsulation process, which we learned about in the [Day 03 - OSI Model & TCP-IP Suite](Day%2003%20-%20OSI%20Model%20&%20TCP-IP%20Suite.md) lecture
 - On Cisco switches, these **dynamic MAC addresses** are removed from the MAC address table after 5 minutes of inactivity
 - This means that if PC1 didn't send any traffic for over 5 minutes, SW1 would remove the MAC address to clean out the MAC address table
 - If PC1 sent traffic again, SW1 would dynamically learn its MAC address again
