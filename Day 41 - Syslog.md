@@ -59,5 +59,5 @@
 	- Messages are sent from the devices to the server
 	- The server **can't** actively pull information from the devices (like SNMP **Get**) or modify variables (like SNMP **Set**)
 - **SNMP** is used to retrieve and organize information about the SNMP managed devices
-	- IP addresses, current interface status, temp, CPU usuage, etc.
+	- IP addresses, current interface status, temp, CPU usage, etc.
 	- SNMP servers can use **Get** to query the clients and **Set** to modify variables on the clients
