@@ -79,8 +79,8 @@
 ![](attachments/b8372bd31c3b90383a3ec2683d042199.png)
 ### Upgrading Cisco IOS
 - From global config mode, use the command `boot system (filepath)`
-	- If you don't use thiscommand, the router will use the first IOS file it finds in flash
-- After that, make sure to save the configuration using a command like `memory` before rebooting the device
+	- If you don't use this command, the router will use the first IOS file it finds in flash
+- After that, make sure to save the configuration using a command like `write memory` before rebooting the device
 - Then, simply use the `reload` command to restart the device
 - To delete the old IOS version, use the command `delete (filepath)`
 ### Copying Files (FTP)
