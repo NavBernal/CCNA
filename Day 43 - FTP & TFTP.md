@@ -1,9 +1,4 @@
 # FTP & TFTP
-
-|     |     |
-| --- | --- |
-|     |     |
-
 ### Things We'll Cover
 - The purpose of FTP/TFTP
 - Functions & differences
