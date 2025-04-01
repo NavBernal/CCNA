@@ -122,4 +122,4 @@
 	- The amount of burst traffic allowed is configurable
 - In both cases, classification can be used to allow for different rates for different kinds of traffic
 - Why would you want to limit the rate traffic is sent/received?
-  ![](attachments/d79f08fa86821895aa8ca326f793faba.png)
+![](attachments/d79f08fa86821895aa8ca326f793faba.png)
