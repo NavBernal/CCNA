@@ -87,3 +87,15 @@
 	- The spread of worms can congest the network, but the 'payload' of a worm can cause additional harm to target devices
 - **Trojan Horses** are harmful software that's disguised as legit software
 	- They're spread through user interaction such as opening email attachments, or downloading a file from the internet
+### Controlling & Monitoring Users w/AAA
+- Enterprises typically use a AAA server to provide AAA services
+	- ISE (Identity Services Engine) is Cisco's AAA server
+- AAA servers usually support the following two AAA protocols:
+	- **RADIUS:** An open standard protocol that uses UDP ports 1812/1813
+	- **TACACS+:** A Cisco proprietary protocol that uses TCP port 49
+### Security Program Elements
+- **User awareness** programs are designed to make employees aware of potential security threats and risks
+- **User training** programs are more formal than user awareness programs
+	- i.e. dedicated training sessions which educate users on security policies, creating strong passwords, etc.
+- **Physical access control** protects equipment and data from potential attackers by only allowing authorized users into protected areas
+	- i.e. network closets or data center floors
