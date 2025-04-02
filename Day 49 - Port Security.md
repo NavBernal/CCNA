@@ -12,7 +12,7 @@
 	- If you don't configure it manually, the switch will allow the first source MAC address that enters the interface
 - You can change the maximum number of MAC addresses allowed
 - A combination of manually configured MAC address and dynamically learned addresses is possible
-![](attachments/Pasted%20image%2020250401183436.png)
+![](attachments/6db54e4348dd5b7579ebb1e394fa8a71.png)
 ### Why port security?
 - Allows network admins to control which devices are allowed to access the network
 - However, MAC address spoofing is a simple task
@@ -24,11 +24,11 @@
 	- the switch's MAC address table can also become full due to such an attack
 - Limiting the number of MAC addresses on an interface can protect against those attacks
 ### Enabling Port Security
-![](attachments/Pasted%20image%2020250401184251.png)
+![](attachments/f93869948b6cc9328a3cffc5649e5e07.png)
 - In order to view port security information, use the command `show port-security interface (int-id)`
 ### Re-Enable an Interface
 **Manually:**
-![](attachments/Pasted%20image%2020250401184650.png)
+![](attachments/6c2740b12a2443c2e76d4dfc3af5cb9d.png)
 **ErrDisable Recovery:**
 - Can view if it's been enabled using the command `show errdisable recovery`
 - By default, all err-disabled interfaces will be re-enabled every 5 minutes if err-disable recovery has been enabled for the cause of the interface's disablement
@@ -51,9 +51,9 @@
 		- It does NOT generate Syslog/SNMP messages for unauthorized traffic
 		- It does NOT increment the violation counter
 ### Violation Mode: Restrict
-![](attachments/Pasted%20image%2020250401185742.png)
+![](attachments/7fb86b7b43314b4262aba90d0e2c95c6.png)
 ### Violation Mode: Protect
-![](attachments/Pasted%20image%2020250401185907.png)
+![](attachments/236827dd682e91d6b265b8d3faf7d419.png)
 ### Secure MAC Address Aging
 - By default, secure MAC address will not 'age out' (Aging Time: 0 mins)
 	- Can be configured with `switchport port-security aging time (minutes)`
@@ -81,7 +81,7 @@
 	- `show port-security`
 	- `show port-security interface (interface)`
 	- `show errdisable recovery`
-- `SW1(config)#`
+- `SW1(config-if)#`
 	- `errdisable recovery cause psecure-violation`
 	- `errdisable recovery interval (seconds)`
 	- `switchport port-security`
