@@ -93,3 +93,21 @@
 - A Cisco-developed solution that allows routers to dynamically create a full mesh of IPsec tunnels without having to manually configure every single tunnel
 ![](attachments/985e99b3c98e42921d7825288beebc14.png)
 - DMVPN provides the configuration simplicity of hub-and-spoke (each spoke router only needs one tunnel configured) and the efficiency of direct spoke-to-spoke communication (spoke routers can communicate directly without traffic passing through the hub)
+### Remote-Access VPNs
+- Whereas site-to-site VPNs are used to make a point-to-point connection between two sites over the Internet, remote-access VPNs are used to allow end devices to access the company's internal resources securely over the Internet
+- Remote-access VPNs typically use TLS (Transport Layer Security)
+	- TLS is also what provides security for HTTPs
+	- TLS was formerly known as SSL and developed by Netscape, but it was renamed when it was standardized by the IETF
+- VPN client software (for example Cisco AnyConnect) is installed on end devices (for example company-provided laptops that employees use to work from home)
+- These end devices then form secure tunnels to one of the company's routers/firewalls acting as a TLS server
+- This allows the end users to securely access resources on the company's internal network without being directly connected to company network
+![](attachments/e8b7bfa2fee97b154feda2d7b9b87190.png)
+### Site-to-Site vs Remote-Access VPN
+- **Site-to-Site VPNs:**
+	- Typically use IPsec
+	- Provide service to many devices within the sites they're connecting
+	- Are typically used to permanently connect two sites over the Internet
+- **Remote-Access VPNs**
+	- Typically use TLS
+	- Provide service to the one end device the VPN client software is installed on
+	- Are typically used to provide on-demand access for end devices that want to securely access company resources while connected to a network which is not secure
