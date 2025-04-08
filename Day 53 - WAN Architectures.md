@@ -75,7 +75,7 @@
 	1. The sending device combines the original packet and session key (encryption key) and runs them through an encryption formula
 	2. The sending device encapsulates the encrypted packet with a VPN header and a new IP header
 	3. The sending device sends the new packet to the device on the other side of the tunnel
-	4. The receiving device decrypts the data to get the original packet, and then froward the original packet to its destination
+	4. The receiving device decrypts the data to get the original packet, and then forward the original packet to its destination
 - In a 'site-to-site' VPN, a tunnel is formed only between two tunnel endpoints (for example, the two routers connected to the Internet)
 - All other devices in each site don't need to create a VPN for themselves
 - They can send unencrypted data to their site's router, which will encrypt it and forward it in the tunnel as described above
