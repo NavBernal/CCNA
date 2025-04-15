@@ -68,7 +68,7 @@
 	- Instead of a PAC, the server has a digital certificate
 	- The client uses this cert to authenticate the server
 	- The cert is also used to establish a TLS tunnel
-	- Since only the server provides a cert, the client must still be authenticated within the secure tunnel (i.e. using MS-CHAP)
+	- Since only the server provides a cert, the client must still be authenticated within the secure tunnel (i.e. using MS-CHAP - Microsoft Challenge-Handshake Authentication Protocol)
 		![](attachments/c3fb90ddcefa00e45b03ea288ae4b762.png)
 - **EAP-TLS (EAP Transport Layer Security)**
 	- Whereas PEAP only requires the AS (Authentication Server) to have a certificate, EAP-TLS requires a cert on the AS and on every single client
