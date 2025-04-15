@@ -19,7 +19,7 @@
 	- Networks become much more scalable
 		- New deployments, network-wide changes, and troubleshooting can be implemented in a fraction of the time
 	- Network-wide policy compliance can be assured (standard configurations, software versions, etc.)
-	- The improved efficiency of network operations reduces the opex (operating expenses) of the network
+	- The improved efficiency of network operations reduces the OpE (operating expenses) of the network
 		- Each task requires fewer man-hours
 - There are various tools/methods that can be used to automate tasks in the network:
 	- SDN (Software-Defined Networking)
@@ -111,7 +111,7 @@
 - However, the robust and centralized data collected by SDN controllers greatly facilitates these functions
 	- The controller collects information about all devices in the network
 	- Northbound APIs allow apps to access information in a format that's easy for programs to understand (i.e. JSON, XML)
-	- The centralized data faciliates network-wide analytics
+	- The centralized data facilitates network-wide analytics
 - SDN tools can provide the benefits of automation without the requirement of third-party scripts & apps
 	- You don't need expertise in automation to make use of SDN tools
 	- However, APIs allow third-party applications to interact with the controller, which can be very powerful
