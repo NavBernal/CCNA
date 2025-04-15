@@ -19,7 +19,7 @@
 	- Networks become much more scalable
 		- New deployments, network-wide changes, and troubleshooting can be implemented in a fraction of the time
 	- Network-wide policy compliance can be assured (standard configurations, software versions, etc.)
-	- The improved efficiency of network operations reduces the OpE (operating expenses) of the network
+	- The improved efficiency of network operations reduces the OpEx (operating expenses) of the network
 		- Each task requires fewer man-hours
 - There are various tools/methods that can be used to automate tasks in the network:
 	- SDN (Software-Defined Networking)
