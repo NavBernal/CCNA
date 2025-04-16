@@ -12,7 +12,7 @@
 - In the traditional model, engineers manage devices one at a time by connecting to their CLI via SSH
 - Some downsides of configuring devices one-by-one:
 	- Typos and other small mistakes are common
-	- It is time-consuming and very inefficient in large-scal networks
+	- It is time-consuming and very inefficient in large-scale networks
 	- It's difficult to ensure that all devices adhere to the org's standard configurations
 - Network automation provides many key benefits:
 	- Human errors (typos, etc.) is reduced
