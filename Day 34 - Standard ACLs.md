@@ -54,7 +54,7 @@
 - Standard ACLs match traffic based only on the source IP address of the packet
 - Numbered ACLs are identified with a number (i.e. ACL 1, ACL 2, etc.)
 - Different types of ACLs have a different range of numbers that can be used
-	- Standard ACLs can use **1-99** and **1300-1999**
+	- Standard ACLs can use **1-99** and **1300-1999** ^979b85
 - The basic command to configure a standard numbered ACL is: `R1(config)# access-list [number] {deny | permit} [ip] [wildcard-mask]`
 - The following three examples all do the same thing, but the last two only work for /32 subnets (single host):
 	- `R1(config)# access-list 1 deny 1.1.1.1 0.0.0.0`
