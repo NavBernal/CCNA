@@ -56,7 +56,7 @@
 		- Often uses by cloud services and third-party APIs
 - **Disadvantages:**
 	- If stolen, the key grants full access until revoked
-	- API keys must be rotated manually to maintain security, wheras tokens expire automatically
+	- API keys must be rotated manually to maintain security, whereas tokens expire automatically
 ### OAuth2.0
 - A secure authentication framework that is widely used in modern web applications
 	- It provides *access delegation*, granting third-party applications **limited access** to resources on behalf of the resource's owner
