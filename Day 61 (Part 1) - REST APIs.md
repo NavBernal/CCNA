@@ -30,3 +30,47 @@
 - When a REST client makes an API call (request) to a REST server, it'll send an HTTP request like the one above
 	- REST APIs don't *have* to use HTTP for communication, although it's the most common choice
 ### HTTP Response
+- The server's response will include a status code indicating if the request succeeded or failed, as well as other details
+- The first digit indicates the class of the response:
+	- **1xx** *informational* - the request was received, continuing process
+		- **102 Processing** indicates that the server has received the request and is processing it, but the response not yet available
+	- **2xx** *successful* - the request was successfully received, understood, and accepted
+		- **200 OK** indicates that the request succeeded
+		- **201 Created** indicates that the request succeeded, and a new resource was created (i.e. in response to POST)
+	- **3xx** *redirection* - further action needs to be taken in order to complete the request
+		- **301 Moved Permanently** indicates that the requested resource has been moved, and the server indicates its new location
+	- **4xx** *client error* - the request contains bad syntax or cannot be fulfilled
+		- **403 Unauthorized** means the client must authenticate to get a response
+		- **404 Not Found** means the requested resource was not found
+	- **5xx** *server error* - the server failed to fulfill an apparently valid request
+		- **500 Internal Server Error** means the server encountered something unexpected that it doesn't know how to handle
+### REST
+- **REST APIs** are also known as **REST-based APIs** or **RESTful APIs**
+	- REST isn't a specific API
+	- Instead, it describes a set of rules about how the API should work
+- The six constraints of RESTful architecture are:
+	- Uniform Interface
+	- Client-server
+	- Stateless
+	- Cacheable or non-cacheable
+	- Layered system
+	- Code-on-demand (optional)
+- For applications to communicate over a network, networking protocols must be used to facilitate those communications
+	- For REST APIs, HTTP(S) is the most common choice
+### Client-Server
+- The client uses API calls (HTTP requests) to access the resources on the server
+- The separation between the client and server means they can both change and evolve independently of each other
+	- When the client application changes or the server application changes, the interface between them must not break
+### Stateless
+- Each API exchange is a separate event, independent of all past exchanges between the client and server
+	- The server doesn't store information about previous requests from the client to determine how it should respond to new requests
+- If authentication is required, this means that the client must authenticate with the server for each request it makes
+- TCP is an example of a stateful protocol
+- UDP is an example of a stateless protocol
+- Although REST APIs use HTTP, which uses TCP (stateful) as its Layer 4 protocol, HTTP and REST APIs themselves aren't stateful
+	- The functions of each layer are separate!
+### Cacheable or Non-Cacheable
+- *Caching* refers to storing data for future use
+	- For example, your computer might cache many elements of a web page so that it doesn't have to retrieve the entire page every time you visit it
+	- This improves performance for the client and reduces the load on the server
+- Not all resources have to be cacheable, but cacheable resources MUST be declared as cacheable
