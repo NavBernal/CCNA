@@ -121,3 +121,69 @@
 - Outbound ACLs are checked **after** the router receives and routes the packet to the outbound interface
 - RouterA does **not** check ACL 10 when the packet enters F0/0, since ACL 10 isn't applied inbound on that interface
 - Inbound ACLs are processed **after receiving** a packet but **before routing** it to the outbound interface
+### Question 29
+![](attachments/9c4cd9c72f7e0c919452e126ab984404.png)
+- **E is correct**
+- In this scenario, the MAC address 00-33-66-99-BB-EE has an OUI of 00-33-66 and a NIC idetnfier of 99-BB-EE
+- To create an EUI-64 interface ID, you split the MAC address in half, add FFFE to the middle, and invert the 7th (U/L) bit
+- The hex value 00 in the first 8 bits of the OUI can be represented in binary as 0000 0000
+- After inverting, this results in 0000 00**1**0
+- When converted back to hex, this becomes 02
+- That means the EUI-64 interface ID is now **02**33:66FF:FE99:BBEE
+- This is then combined with the IPv6 prefix to create an IPv6 address
+- Appending the prefix 2012::99 to this interface ID creates the global unicast IPv6 address of 2012::99:0233:66FF:FE99:BBEE
+### Question 32
+![](attachments/67b61ac944084e0cc29aa29b4adb482f.png)
+- **D is correct**
+- The `ipv6 traffic-filter` command can be used in interface config mode to apply an ACL to an IPv6 interface
+- The syntax for this command is `ipv6 traffic-filter (ipv6-acl) [in | out]`
+- The `access-class` command can be used to apply an IPv4 ACL to a vty, AUX, or console line
+- For IPv6, the `ipv6 access-class` command can be used
+### Question 33
+![](attachments/9a85c4b365f435878a673275ff978d8a.png)
+- **Correct answers: C & D**
+- `default-information originate` injects a router's default external route into OSPF
+- Issuing `default-information originate` or `redistribute (network)` makes the router an ASBR
+- ASBR redistributes routes from other routing protocols into OSPF
+- Using the command on RouterA makes it RouterB's gateway of last resort
+- RouterB becomes RouterC's gateway of last resort via RouterA
+- This command does **NOT** advertise all directly connected routes
+- Use `redistribute connected` to advertise directly connected routes
+- `summary-address (address mask)` summarizes redistributed routes in OSPF
+### Question 36
+![](attachments/14e65b1ff75db9a49c367f979f6f99b3.png)
+- **B is correct**
+- `switchport voice vlan` has four options:
+	- *vlan-id*
+	- `dot1p`
+	- `untagged`
+	- `none`
+- `dot1p` sends voice traffic with 802.1p priority 5 using VLAN 0; requires VLAN ID but not a unique voice VLAN
+- This can be seen below:
+![](attachments/5e8c27273035d3ac5079af198414ec38.png)
+- `none` is the default mode; IP phone sends untagged voice and data traffic over the access VLAN
+![](attachments/d58662dc38bd853699b30fe919989813.png)
+- `switchport voice vlan 10` sends voice traffic over VLAN 10 (a unique VLAN)
+![](attachments/9f7e2f849c5a5a4cbe0f3933b9ee529b.png)
+- `untagged` sends both voice and data as untagged over the native VLAN
+- Both voice and data traffic use a special-case 802.1Q trunk:
+![](attachments/f6be3bcd540f5449b0611d859e71b123.png)
+### Question 38
+![](attachments/ce282cea738a35e4af1b3d010f9cd731.png)
+- **Correct answers: B & C**
+- Default `switchport port-security` settings (if not previously configured):
+    - Sticky MAC learning disabled
+    - Max 1 MAC address allowed
+    - Violation mode set to _Shutdown_
+    - Aging time set to 0
+    - Static aging disabled
+    - Aging type set to _absolute_
+- F0/1 allows only 1 MAC address and uses `protect` mode
+- Only the first host can access the network
+- Traffic from the second host is discarded; port continues working for the first
+- Port security supports both static and dynamically-learned MAC addresses by default
+### Question 39
+![](attachments/1da178a0c12f86c650ffc50dedd00269.png)
+- **A is correct**
+- EIGRP supports load balancing over equal-cost and unequal-cost paths
+- OSPF only supports equal-cost load balancing
