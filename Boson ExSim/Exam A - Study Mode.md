@@ -187,3 +187,54 @@
 - **A is correct**
 - EIGRP supports load balancing over equal-cost and unequal-cost paths
 - OSPF only supports equal-cost load balancing
+![](attachments/Pasted%20image%2020250506112830.png)
+- **FE80::/10** — Link-local unicast addresses
+    - Used for one-to-one communication within a local network segment
+    - Unique only on the local link and **not routable** beyond it
+- **FF02::/16** — Link-local multicast addresses
+    - Used for one-to-many communication on the local segment
+    - Like link-local unicast, **not routable** beyond the link
+- **FF05::/16** — Site-local multicast addresses
+    - Used for multicast within an organization or site
+    - **Routable within an organization**, but **not globally**
+- **FD00::/8** — Unique local unicast addresses
+    - Private IPv6 addresses, similar to private IPv4
+    - Routable **within an organization**, but **not on the public internet**
+    - Part of **FC00::/7** range (addresses start with **FC00**–**FDFF**)
+![](attachments/Pasted%20image%2020250506114322.png)
+- A **/126 prefix** allocates **126 bits** for the network and **2 bits** for hosts
+    - Allows **4 addresses** per subnet
+- The network uses the range: **2001:DB8:A::0000 – 2001:DB8:A::00FF**
+- **RouterA** is assigned the **next-to-last** address: **2001:DB8:A::00FE**
+- **RouterB** is assigned the **last** address: **2001:DB8:A::00FF**
+- IPv6 **does not use broadcast**, so the last address in a subnet **can be used** for hosts
+![](attachments/Pasted%20image%2020250506115704.png)
+- **F0/8** won’t appear in `show vlan` output on **SwitchA** because it’s a **trunk port**
+- The `show vlan` command only lists **access ports**
+- Use `show interfaces trunk` to view **trunk port** details
+- Even with `switchport access vlan 20`, the port is still a trunk if `switchport mode trunk` is configured
+- To make it an **access port**, use `switchport mode access`
+![](attachments/Pasted%20image%2020250506125814.png)
+- The `no service password-encryption` command **disables automatic encryption** of newly created passwords
+- In this scenario, only `enable secret 5` allows storing a **pre-encrypted password** for enable mode access
+- You can specify an **encryption type**:
+    - `0` = clear-text
+    - `4` = SHA-256 hash
+    - `5` = MD5 hash
+    - Followed by the corresponding **encrypted-password** value
+![](attachments/Pasted%20image%2020250506131210.png)
+- Routers **check the routing table** for the next-hop to a destination network
+- If multiple routes exist, the **most specific route** (longest prefix) is chosen
+- **Administrative Distance (AD)** is used to decide which route to install when multiple routes to the **same prefix** are available
+- Routes with **different prefix lengths** are treated as **separate entries**
+- If OSPF, EIGRP, and RIP all advertise **10.20.0.0/28**, **EIGRP** is selected due to its **lowest AD**
+- **RouterA won't use a static route** if it's for a broader prefix than the OSPF route to **10.20.0.14**
+- If a static route to **10.20.0.0/28** were configured, it would be preferred over OSPF because **static routes have a lower AD**
+![](attachments/Pasted%20image%2020250506132224.png)
+- Based on the correct answer, an extended ACL is configured on **RouterA’s S0/0** (untrusted interface) to:
+    - **Deny and log** traffic from **192.168.10.0/24** (prevents spoofing from the internal network range)
+    - **Permit ICMP unreachable** messages **to 1.2.3.5** (limits ICMP exposure)
+    - **Deny all other inbound IP traffic**
+- Since **192.168.10.0/24** is the internal network, such traffic should **not appear on the external interface**
+- Restricting ICMP helps reduce **ICMP-based attack threats**
+- Best practice: **deny unnecessary inbound traffic** on untrusted interfaces to protect the internal network
